@@ -13,67 +13,100 @@
 
         body {
             font-family: "微软雅黑", "宋体", sans-serif;
-            background: #f5f8fb;
+            background-color: #f5f8fb;
             color: #2c3e50;
-            line-height: 1.8;
+            padding: 20px;
         }
 
-        /* 头部横幅 */
+        /* 顶部标题栏 */
         header {
-            background: linear-gradient(135deg, #c9e0f5, #e8f0f8);
+            border: 1px solid #2a3b5d;
+            padding: 25px;
             text-align: center;
-            padding: 60px 20px;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #c9e0f5, #e8f0f8);
         }
 
         header h1 {
-            font-size: 2.4rem;
+            font-size: 2rem;
             color: #1a3b5d;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         header p {
             color: #4a6b8a;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
-        /* 容器 */
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
+        /* 主体布局 */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
-        /* 板块样式 */
-        .card {
-            background: #fff;
-            border-radius: 12px;
+        /* 左侧栏 */
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .avatar-box {
+            border: 1px solid #2a3b5d;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+        }
+
+        .quote-sidebar {
+            border: 1px solid #2a3b5d;
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .quote-sidebar h3 {
+            color: #2a5278;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #69a3d5;
+            padding-bottom: 8px;
+        }
+
+        .quote-sidebar p {
+            margin-bottom: 12px;
+            color: #55799c;
+            font-style: italic;
+        }
+
+        /* 右侧主内容区 */
+        .content-area {
+            border: 1px solid #2a3b5d;
             padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            background-color: #fff;
         }
 
-        .card h2 {
+        .content-area h2 {
             color: #2a5278;
             margin-bottom: 20px;
             border-left: 4px solid #69a3d5;
             padding-left: 12px;
         }
 
-        /* 语录 */
-        .quote {
-            font-style: italic;
-            color: #55799c;
-            text-align: center;
-            font-size: 1.1rem;
-            margin: 15px 0;
+        .content-area p {
+            margin-bottom: 15px;
+            line-height: 1.8;
         }
 
-        /* 页脚 */
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #7794b2;
-            font-size: 0.95rem;
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -84,33 +117,35 @@
     <p>｜黎深 · 恋与深空 专属应援小筑｜</p>
 </header>
 
-<div class="container">
-    <!-- 人物简介 -->
-    <div class="card">
+<div class="main-layout">
+    <!-- 左侧栏 -->
+    <div class="left-column">
+        <!-- 头像区 -->
+        <div class="avatar-box">
+            <p style="color:#7794b2;">黎深头像区</p>
+            <!-- 以后可以换成 <img src="你的头像图地址" alt="黎深"> -->
+        </div>
+
+        <!-- 语录侧边栏 -->
+        <div class="quote-sidebar">
+            <h3>黎深语录</h3>
+            <p>“万物皆有裂痕，那是光照进来的地方。”</p>
+            <p>我会一直在，做你最安稳的依靠。</p>
+            <p>清风知意，月色温柔。</p>
+        </div>
+    </div>
+
+    <!-- 右侧主内容区 -->
+    <div class="content-area">
         <h2>人物简介</h2>
-        <p>黎深，温柔又克制的医者，清冷眉眼间藏着细腻的温柔。</p>
-        <p>理智是他的外壳，温柔是他的本心，于人海之中，自成一抹干净澄澈的风景。</p>
-    </div>
+        <p>黎深，温柔又克制的医者，清冷眉眼间藏着细腻的温柔。理智是他的外壳，温柔是他的本心，于人海之中，自成一抹干净澄澈的风景。</p>
 
-    <!-- 语录专区 -->
-    <div class="card">
-        <h2>黎深语录</h2>
-        <p class="quote">“万物皆有裂痕，那是光照进来的地方。”</p>
-        <p class="quote">我会一直在，做你最安稳的依靠。</p>
-    </div>
-
-    <!-- 应援寄语 -->
-    <div class="card">
-        <h2>应援寄语</h2>
+        <h2 style="margin-top: 30px;">应援寄语</h2>
         <p>听茉莉千朵悄然盛放，赴一场与黎深的漫长相逢。</p>
-        <p>清风知意，月色温柔，愿岁岁年年，常伴黎深左右。</p>
+        <p>愿岁岁年年，常伴黎深左右。</p>
+        <p style="margin-top: 20px; color:#55799c; font-style: italic;">Hearing the sound of thousands of jasmine blossoms blooming.</p>
     </div>
 </div>
-
-<footer>
-    Hearing the sound of thousands of jasmine blossoms blooming.<br>
-    Forever for Li Shen.
-</footer>
 
 </body>
 </html>
